@@ -10,7 +10,7 @@ interface TodoState {
 }
 
 const initialState: TodoState = {
-  todos: [],
+  todos: JSON.parse(localStorage.getItem('todos') || '[]'), // Mengambil dari localStorage saat inisialisasi
 };
 
 const todoSlice = createSlice({
@@ -23,9 +23,11 @@ const todoSlice = createSlice({
         task: action.payload.task,
       };
       state.todos.push(newTodo);
+      localStorage.setItem('todos', JSON.stringify(state.todos));
     },
     removeTodo: (state, action: PayloadAction<{ id: number }>) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
+      localStorage.setItem('todos', JSON.stringify(state.todos));
     },
   },
 });
