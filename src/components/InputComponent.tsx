@@ -28,7 +28,7 @@ const InputComponent: React.FC = () => {
 
   return (
     <div
-      className="custom-input border-custom rounded col-lg-6 d-flex flex-rows justify-content-center align-items-center gap-2 my-5 mx-auto">
+      className="custom-input border-custom rounded col-lg-6 d-flex flex-rows justify-content-evenly align-items-center my-5 mx-auto p-1">
       <div
         className="custom-input col-lg-10 d-flex flex-column p-3 rounded gap-3">
         <input
