@@ -21,7 +21,7 @@
   .btn-custom-1{
     background-color: white;
     max-width: 10vh;
-    height: 5vh;
+    min-height: 5vh;
 }
 
 @media (max-width: 1000px) {
