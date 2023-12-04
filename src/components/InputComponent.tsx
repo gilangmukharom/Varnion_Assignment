@@ -3,13 +3,24 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/todoSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./style.css";
 
 const InputComponent: React.FC = () => {
   const dispatch = useDispatch();
   const [task1, setTask1] = useState("");
   const [task2, setTask2] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   const handleAddTodo = () => {
+    if (task1.trim() === "" || task2.trim() === "") {
+      setError("Silahkan isi judul dan deskripsinya!");
+      return;
+    }
+
+    // Reset error state
+    setError(null);
+
+    // Add todo
     dispatch(addTodo({ task: `${task1} - ${task2}` }));
     setTask1("");
     setTask2("");
@@ -17,26 +28,29 @@ const InputComponent: React.FC = () => {
 
   return (
     <div
-      className="border border-primary rounded col-sm-4 col-md-7 col-lg-6 d-flex flex-rows justify-content-center align-items-center gap-2 m-lg-auto m-md-auto m-sm-0">
+      className="custom-input border-custom rounded col-lg-6 d-flex flex-rows justify-content-center align-items-center gap-2 my-5 mx-auto">
       <div
-        className="col-sm-7 col-md-9 col-lg-10 d-flex flex-column p-2 rounded gap-1">
+        className="custom-input col-lg-10 d-flex flex-column p-2 rounded gap-1">
         <input
           type="text"
-          className="form-control"
-          placeholder="Masukkan Judul"
+          className="border-custom bg-dark text-white rounded p-2"
+          placeholder="Masukan Judul"
           value={task1}
           onChange={(e) => setTask1(e.target.value)}
+          required
         />
         <input
           type="text"
-          className="form-control" // Added Bootstrap class for styling
-          placeholder="Masukkan Deskripsi"
+          className="border-custom bg-dark text-white rounded p-2"
+          placeholder="Masukan Deskripsi"
           value={task2}
           onChange={(e) => setTask2(e.target.value)}
+          required
         />
+        {error && <div className="text-danger">{error}</div>}
       </div>
       <button
-        className="btn btn-primary"
+        className="btn btn-custom-1"
         onClick={handleAddTodo}
       >
         +

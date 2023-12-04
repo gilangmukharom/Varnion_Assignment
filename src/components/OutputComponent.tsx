@@ -47,24 +47,26 @@ const OutputComponent: React.FC = () => {
         {todoList.map((todo) => (
           <div
             key={todo.id}
-            className="col-sm-6 col-md-4 col-lg-3 m-auto d-flex border border-primary mb-2 rounded justify-content-between gap-3 btn pointer"
+            className="col-sm-6 col-md-4 col-lg-3 m-auto d-flex border-custom mb-2 rounded justify-content-between gap-3 btn pointer"
           >
-            <div className="d-flex flex-column justify-content-between gap-2 overflow-ellipsis"
+            <div className="w-100 justify-content-between text-start gap-2 overflow-ellipsis"
             onClick={() => handleTodoClick(todo.id)}>
-              <h3 className="overflow-ellipsis"> {todo.task.split("-")[0]}</h3>
-              <p className="overflow-ellipsis">{todo.task.split("-")[1]}</p>
+              <h3 className="overflow-ellipsis text-white"> {todo.task.split("-")[0]}</h3>
+              <p className="overflow-ellipsis text-white">{todo.task.split("-")[1]}</p>
             </div>
 
             <button
               onClick={() => handleDeleteButtonClick(todo.id)}
-              className="rounded btn btn-custom btn-danger m-auto"
+              className="rounded btn btn-danger m-auto"
             >
               X
             </button>
           </div>
         ))}
         {/* Todo Details Modal */}
-        <Modal show={showDetailsModal} onHide={handleCloseDetailsModal}>
+        <Modal
+          show={showDetailsModal}
+          onHide={handleCloseDetailsModal}>
           <Modal.Header closeButton>
             <Modal.Title>Task Details</Modal.Title>
           </Modal.Header>
