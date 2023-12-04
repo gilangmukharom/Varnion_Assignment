@@ -1,0 +1,10 @@
+.overflow-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.btn-custom{
+    max-width: 10vh;
+    height: 5vh;
+}
