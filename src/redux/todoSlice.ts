@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface Todo {
   id: number;
   task: string;
+  createdAt: string;
 }
 
 interface TodoState {
@@ -21,6 +22,7 @@ const todoSlice = createSlice({
       const newTodo: Todo = {
         id: state.todos.length + 1,
         task: action.payload.task,
+        createdAt: new Date().toLocaleString(),
       };
       state.todos.push(newTodo);
       localStorage.setItem('todos', JSON.stringify(state.todos));

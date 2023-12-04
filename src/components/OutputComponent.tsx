@@ -53,6 +53,7 @@ const OutputComponent: React.FC = () => {
             onClick={() => handleTodoClick(todo.id)}>
               <h3 className="overflow-ellipsis text-white"> {todo.task.split("-")[0]}</h3>
               <p className="overflow-ellipsis text-white">{todo.task.split("-")[1]}</p>
+              <small className="text-white">Dibuat pada : {todo.createdAt}</small>
             </div>
 
             <button
