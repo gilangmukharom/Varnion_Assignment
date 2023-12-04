@@ -30,7 +30,7 @@ const InputComponent: React.FC = () => {
     <div
       className="custom-input border-custom rounded col-lg-6 d-flex flex-rows justify-content-center align-items-center gap-2 my-5 mx-auto">
       <div
-        className="custom-input col-lg-10 d-flex flex-column p-2 rounded gap-1">
+        className="custom-input col-lg-10 d-flex flex-column p-3 rounded gap-3">
         <input
           type="text"
           className="border-custom bg-dark text-white rounded p-2"
@@ -53,7 +53,7 @@ const InputComponent: React.FC = () => {
         className="btn btn-custom-1"
         onClick={handleAddTodo}
       >
-        +
+        <i className="fas fa-plus"></i>
       </button>
     </div>
   );

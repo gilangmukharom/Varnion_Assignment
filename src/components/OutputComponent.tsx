@@ -60,7 +60,7 @@ const OutputComponent: React.FC = () => {
               onClick={() => handleDeleteButtonClick(todo.id)}
               className="rounded btn btn-danger m-auto"
             >
-              X
+              <i className="fas fa-trash"></i>
             </button>
           </div>
         ))}
